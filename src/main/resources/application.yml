@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          myinput:
+            consumer:
+              bindingRoutingKey: PDS_R_TEST
+              #direct，fanout或topic direct或topic
+              exchangeType: direct
+      bindings:
+        myinput:
+          destination: foo
+          binder: rabbit1
+        myoutput:
+          destination: bar
+          binder: rabbit2
+      binders:
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 127.0.0.1
+#                prot: 5672
+                username: admin
+                password: admin
+                virtual-host: vv
+

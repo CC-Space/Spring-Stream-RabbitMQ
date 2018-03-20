@@ -12,6 +12,7 @@ spring:
         myinput:
           destination: foo
           binder: rabbit1
+          group: PDS_Q_TEST
         myoutput:
           destination: bar
           binder: rabbit2
